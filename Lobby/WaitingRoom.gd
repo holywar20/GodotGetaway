@@ -10,4 +10,6 @@ func refreshPlayers( players ):
 
 	for id in players:
 		var player = players[id]["PlayerName"]
-		playerList.addItem( player , null , false )
+		playerList.add_item( player , null , false )
+
+

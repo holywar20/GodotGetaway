@@ -1,6 +1,7 @@
 extends Node
 
 var saveData = {}
+# %APPDATA%/Name
 const SAVEGAME = "user://Savegame.json"
 
 func _ready():

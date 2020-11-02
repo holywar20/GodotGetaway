@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.823529, 0.0156863, 0.623529, 1 )
+metallic = 0.85
+metallic_specular = 0.97
+rim_enabled = true
+rim = 0.14
+rim_tint = 0.89
+
+[node name="World" type="Spatial"]
+
+[node name="Floor" type="CSGBox" parent="."]
+use_collision = true
+width = 200.0
+height = 1.0
+depth = 200.0
+
+[node name="Wall1" type="CSGBox" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100 )
+width = 200.0
+height = 15.0
+depth = 1.0
+
+[node name="Wall2" type="CSGBox" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
+width = 200.0
+height = 15.0
+depth = 1.0
+
+[node name="Wall3" type="CSGBox" parent="Floor"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 0, 4.37114e-06 )
+width = 200.0
+height = 15.0
+depth = 1.0
+
+[node name="Wall4" type="CSGBox" parent="Floor"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -100, 0, -4.37114e-06 )
+width = 200.0
+height = 15.0
+depth = 1.0
+
+[node name="CSGTorus" type="CSGTorus" parent="Floor"]
+transform = Transform( 4, 0, 0, 0, -1.74846e-07, -4, 0, 4, -1.74846e-07, 0, 5, 1.63038 )
+material = SubResource( 1 )
+
+[node name="CSGTorus2" type="CSGTorus" parent="Floor"]
+transform = Transform( 3.4641, 2, -8.74228e-08, 0, -1.74846e-07, -4, -2, 3.4641, -1.51421e-07, 7, 5, 28.6304 )
+material = SubResource( 1 )
+
+[node name="CSGTorus3" type="CSGTorus" parent="Floor"]
+transform = Transform( 1.03528, 3.8637, -1.68888e-07, 0, -1.74846e-07, -4, -3.8637, 1.03528, -4.52534e-08, 31, 5, 43.6304 )
+material = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -33 )
