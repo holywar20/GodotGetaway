@@ -6,6 +6,8 @@ const MAX_PLAYERS = 4
 
 const WAITING_ROOM_GROUP = "WaitingRoom"
 
+const WORLD_SCENE = "res://World/World.tscn"
+
 var selectedPort : int
 var selectedIp : String
 
@@ -68,3 +70,11 @@ func addToPlayerList():
 
 sync func updateWaitingRoom():
 	get_tree().call_group( WAITING_ROOM_GROUP , "refreshPlayers" , players )
+
+# Starts the game. Meant to be run by the server
+func startGame():
+	rpc("loadWorld")
+
+# Starting the game for each individual machine
+sync func loadWorld():
+	get_tree().change_scene( WORLD_SCENE )

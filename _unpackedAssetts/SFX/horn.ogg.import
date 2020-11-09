@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/horn.ogg-48f5fdf2b28ade5f0e6f3dd2524489d7.oggstr"
+
+[deps]
+
+source_file="res://_unpackedAssetts/SFX/horn.ogg"
+dest_files=[ "res://.import/horn.ogg-48f5fdf2b28ade5f0e6f3dd2524489d7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

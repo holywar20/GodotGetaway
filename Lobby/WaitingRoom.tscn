@@ -25,33 +25,44 @@ margin_top = -600.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="VBox" type="VBoxContainer" parent="."]
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -160.0
+margin_right = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBox"]
-margin_right = 1024.0
+margin_right = 320.0
 margin_bottom = 34.0
 text = "Waiting Room"
 align = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="VBox"]
 margin_top = 38.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 320.0
+margin_bottom = 358.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ItemList" type="ItemList" parent="VBox/CenterContainer"]
-margin_left = 352.0
-margin_top = 121.0
-margin_right = 672.0
-margin_bottom = 441.0
+margin_right = 320.0
+margin_bottom = 320.0
 rect_min_size = Vector2( 320, 320 )
 rect_clip_content = false
 items = [ "Player 1", null, false, "Player 2", null, false ]
+
+[node name="StartGameButton" type="Button" parent="VBox" groups=[
+"HostOnly",
+]]
+visible = false
+margin_top = 362.0
+margin_right = 320.0
+margin_bottom = 402.0
+size_flags_vertical = 0
+text = "Start Game"

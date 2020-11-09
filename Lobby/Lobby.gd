@@ -14,7 +14,18 @@ func _ready():
 	portTextBox.text = str(Network.DEFAULT_PORT)
 	ipTextBox.text = str(Network.DEFAULT_IP)
 
+func createWaitingRoom():
+	waitingRoom.popup_centered()
+	waitingRoom.refreshPlayers( Network.players )
+
+
+# Button Logic
+func _onStartGameButtonPressed():
+	Network.startGame()
+
 func _onHostGameButtonDown():
+	get_tree().call_group( "HostOnly" , "show" )
+	
 	Network.selectedPort = int( portTextBox.text )
 	Network.createServer()
 	createWaitingRoom()
@@ -29,6 +40,3 @@ func _onChangeNamedTextBox( newText ):
 	Saved.saveData["PlayerName"] = newText
 	Saved.saveGame()
 
-func createWaitingRoom():
-	waitingRoom.popup_centered()
-	waitingRoom.refreshPlayers( Network.players )

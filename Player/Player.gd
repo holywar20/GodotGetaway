@@ -1,9 +1,10 @@
 extends VehicleBody
 
-const MAX_STEER_ANGLE = 0.35
+
+const MAX_STEER_ANGLE : float = 0.35
 const STEER_SPEED = 1
 
-const MAX_ENGINE_FORCE = 175
+const MAX_ENGINE_FORCE = 375
 const MAX_BRAKE_FORCE = 10
 const MAX_SPEED = 100
 
@@ -11,16 +12,53 @@ const MAX_SPEED = 100
 var steerTarget = 0.0
 var steerAngle = 0.0
 
+sync var players = {}
+var playerData = {"steer" : 0 , "engine" : 0 , "brakes": 0 , "position" :null }
+
 func _ready():
-	pass
+	players[name] = playerData
+	players[name].position = transform
 
+	if not isLocalPlayer():
+		$Camera.queue_free()
+
+# Network
+func isLocalPlayer():
+	return name == str(Network.localPlayerId)
+
+func _updateServer( id , steer , engine, brakes ):
+	if not Network.localPlayerId == 1:
+		rpc_unreliable_id( 1 , "manageClients" , id, steer, engine, brakes )
+	else:
+		manageClients( id , steer , engine, brakes )
+
+sync func manageClients( id , steer , engine, brakes ):
+	players[id].steer = steer
+	players[id].engine = engine
+	players[id].brakes = brakes
+	players[id].position = transform
+	
+	rset_unreliable("players" , players)
+
+# Physics
 func _physics_process(delta):
-	drive( delta )
+	if isLocalPlayer():
+		drive( delta )
+	if not Network.localPlayerId == 1:
+		transform = players[name].position
 
-func drive( delta ):
-	steering = applySteering( delta )
-	engine_force = applyThrottle()
-	brake = applyBrakes()
+	engine_force = players[name].engine
+	steering = players[name].steer
+	brake = players[name].brakes
+
+
+func drive( delta : float ):
+	var engineForceVal = applyThrottle()
+	var steeringVal = applySteering( delta )
+	var brakeVal = applyBrakes()
+
+	_updateServer( name,  steeringVal, engineForceVal, brakeVal )
+
 
 func applyBrakes():
 	var brakeVal = 0
@@ -29,10 +67,8 @@ func applyBrakes():
 	if( brakeStrength ):
 		brakeVal = brakeStrength
 	
-	print( brakeVal )
 
 	return brakeVal * MAX_BRAKE_FORCE
-
 
 func applyThrottle():
 	var throttleVal = 0

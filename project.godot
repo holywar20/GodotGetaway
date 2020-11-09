@@ -63,4 +63,5 @@ Brake={
 
 [rendering]
 
+quality/subsurface_scattering/quality=2
 environment/default_environment="res://default_env.tres"

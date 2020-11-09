@@ -1,0 +1,4 @@
+Export specific meshes
+Edit the mesh instance with new mesh
+Adjust meshes, rest length and physicts settings
+Adjust collision settings
