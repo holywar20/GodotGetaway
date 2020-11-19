@@ -12,6 +12,8 @@ var selectedPort : int
 var selectedIp : String
 
 var localPlayerId = 0
+var readyPlayers = 0
+
 sync var players = {}
 sync var playerData = {}
 # puppet , master

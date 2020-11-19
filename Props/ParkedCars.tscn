@@ -1,0 +1,146 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Props/Car3.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://Player/Mesh/Tire.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://Props/Car1.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://Props/Car2.tres" type="ArrayMesh" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.868017, 0.891731, 2.04174 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="CarMid" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -0.162541 )
+mass = 400.0
+sleeping = true
+
+[node name="MeshInstance" type="MeshInstance" parent="CarMid"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000640392, 0.00781184, -0.0038904 )
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="LeftFrontTire" type="MeshInstance" parent="CarMid/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.999963, -0.00862182, 0, 0.00862182, 0.999963, 0.81174, 0.118523, 1.46704 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="LeftBackTire" type="MeshInstance" parent="CarMid/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.999963, -0.00862182, 0, 0.00862182, 0.999963, 0.81174, 0.118523, -1.21293 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="RightBackTire" type="MeshInstance" parent="CarMid/MeshInstance"]
+transform = Transform( -1, -7.53743e-10, -8.74195e-08, 0, 0.999963, -0.00862182, 8.74228e-08, -0.00862182, -0.999963, -0.822208, 0.118523, -1.21293 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="RightFrontTire" type="MeshInstance" parent="CarMid/MeshInstance"]
+transform = Transform( -1, -7.53743e-10, -8.74195e-08, 0, 0.999963, -0.00862182, 8.74228e-08, -0.00862182, -0.999963, -0.822207, 0.118523, 1.46704 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="CarMid"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640735, 0 )
+shape = SubResource( 1 )
+
+[node name="CarBack" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -6.5 )
+mass = 400.0
+sleeping = true
+
+[node name="MeshInstance" type="MeshInstance" parent="CarBack"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000999928, 0.008, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="LeftFrontTire" type="MeshInstance" parent="CarBack/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.999963, -0.00862182, 0, 0.00862182, 0.999963, 0.81174, 0.118523, 1.46704 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="LeftBackTire" type="MeshInstance" parent="CarBack/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.999963, -0.00862182, 0, 0.00862182, 0.999963, 0.81174, 0.118523, -1.21293 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="RightBackTire" type="MeshInstance" parent="CarBack/MeshInstance"]
+transform = Transform( -1, -7.53743e-10, -8.74195e-08, 0, 0.999963, -0.00862182, 8.74228e-08, -0.00862182, -0.999963, -0.822208, 0.118523, -1.21293 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="RightFrontTire" type="MeshInstance" parent="CarBack/MeshInstance"]
+transform = Transform( -1, -7.53743e-10, -8.74195e-08, 0, 0.999963, -0.00862182, 8.74228e-08, -0.00862182, -0.999963, -0.822207, 0.118523, 1.46704 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="CarBack"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641, 0 )
+shape = SubResource( 1 )
+
+[node name="CarFront" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 7.5 )
+mass = 400.0
+sleeping = true
+
+[node name="MeshInstance" type="MeshInstance" parent="CarFront"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000999928, 0.008, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="LeftFrontTire" type="MeshInstance" parent="CarFront/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.999963, -0.00862182, 0, 0.00862182, 0.999963, 0.81174, 0.118523, 1.46704 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="LeftBackTire" type="MeshInstance" parent="CarFront/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.999963, -0.00862182, 0, 0.00862182, 0.999963, 0.81174, 0.118523, -1.21293 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="RightBackTire" type="MeshInstance" parent="CarFront/MeshInstance"]
+transform = Transform( -1, -7.53743e-10, -8.74195e-08, 0, 0.999963, -0.00862182, 8.74228e-08, -0.00862182, -0.999963, -0.822208, 0.118523, -1.21293 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="RightFrontTire" type="MeshInstance" parent="CarFront/MeshInstance"]
+transform = Transform( -1, -7.53743e-10, -8.74195e-08, 0, 0.999963, -0.00862182, 8.74228e-08, -0.00862182, -0.999963, -0.822207, 0.118523, 1.46704 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="CarFront"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641, 0 )
+shape = SubResource( 1 )
