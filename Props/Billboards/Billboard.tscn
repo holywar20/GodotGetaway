@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Props/Billboards/Billboard.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.933333, 0.552941, 0.0117647, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0, 0.921569, 0.968627, 1 )
+metallic = 0.75
+
+[node name="Spatial" type="Spatial"]
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 15, -10 )
+use_collision = true
+
+[node name="Backing" type="CSGBox" parent="CSGCombiner"]
+width = 15.75
+height = 9.0
+depth = 0.5
+material = SubResource( 1 )
+
+[node name="LeftPoll" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -6, 0.419 )
+width = 0.6
+height = 18.0
+depth = 0.6
+material = SubResource( 2 )
+
+[node name="LeftPoll2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.92344, -6, 0.419 )
+width = 0.6
+height = 18.0
+depth = 0.6
+material = SubResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.26969 )
+invert_faces = true
+width = 15.0
+height = 8.0
+depth = 0.01
+script = ExtResource( 1 )

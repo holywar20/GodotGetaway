@@ -11,12 +11,12 @@ extents = Vector3( 0.868017, 0.891731, 2.04174 )
 [node name="Spatial" type="Spatial"]
 
 [node name="CarMid" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -0.162541 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.52111, 0.29172, -6.5 )
 mass = 400.0
 sleeping = true
 
 [node name="MeshInstance" type="MeshInstance" parent="CarMid"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000640392, 0.00781184, -0.0038904 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000640392, 0.00781184, 0.761275 )
 mesh = ExtResource( 3 )
 material/0 = null
 material/1 = null
@@ -52,16 +52,16 @@ material/1 = null
 material/2 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="CarMid"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640735, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640735, 0.678438 )
 shape = SubResource( 1 )
 
 [node name="CarBack" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -6.5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.28232, 0.29172, -6.5 )
 mass = 400.0
 sleeping = true
 
 [node name="MeshInstance" type="MeshInstance" parent="CarBack"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000999928, 0.008, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000999928, 0.00799999, 0.444688 )
 mesh = ExtResource( 4 )
 material/0 = null
 material/1 = null
@@ -97,16 +97,16 @@ material/1 = null
 material/2 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="CarBack"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641, 0.40138 )
 shape = SubResource( 1 )
 
 [node name="CarFront" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 7.5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.28233, 0.29172, -6.5 )
 mass = 400.0
 sleeping = true
 
 [node name="MeshInstance" type="MeshInstance" parent="CarFront"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000999928, 0.008, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000999928, 0.00799999, -1.92837 )
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
@@ -142,5 +142,5 @@ material/1 = null
 material/2 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="CarFront"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641, -1.80854 )
 shape = SubResource( 1 )
