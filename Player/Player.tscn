@@ -8,6 +8,7 @@
 extents = Vector3( 1, 0.700103, 2.00597 )
 
 [node name="Player" type="VehicleBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0960581, 0 )
 mass = 122.449
 script = ExtResource( 1 )
 
@@ -25,9 +26,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00134993, 1.41034, -0.007247
 shape = SubResource( 1 )
 
 [node name="WheelLeftFront" type="VehicleWheel" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.918965, 0.289, 1.5407 )
+transform = Transform( 0.882299, 0, 0, 0, 1, 0, 0, 0, 1, -0.812381, 0.272557, 1.5407 )
 use_as_traction = true
 use_as_steering = true
+wheel_roll_influence = 0.05
 wheel_radius = 0.4
 wheel_rest_length = 0.2
 wheel_friction_slip = 10.0
@@ -36,18 +38,19 @@ suspension_stiffness = 25.0
 suspension_max_force = 900.0
 
 [node name="Mesh" type="MeshInstance" parent="WheelLeftFront"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0106324, 0.0544312, -1.19209e-07 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.011, 0, 0 )
 mesh = ExtResource( 3 )
 material/0 = null
 material/1 = null
 material/2 = null
 
 [node name="WheelLeftRear" type="VehicleWheel" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.018, 0.352164, -1.16154 )
+transform = Transform( 0.890968, 0, 0, 0, 1, 0, 0, 0, 1, -0.910718, 0.351315, -1.16933 )
 use_as_traction = true
+wheel_roll_influence = 0.05
 wheel_radius = 0.4
 wheel_rest_length = 0.2
-wheel_friction_slip = 10.0
+wheel_friction_slip = 9.5
 suspension_travel = 0.4
 suspension_stiffness = 25.0
 suspension_max_force = 700.0
@@ -60,9 +63,10 @@ material/1 = null
 material/2 = null
 
 [node name="WheelRightFront" type="VehicleWheel" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.892134, 0.289, 1.5377 )
+transform = Transform( 0.882299, 0, 0, 0, 1, 0, 0, 0, 1, 0.78555, 0.282247, 1.5377 )
 use_as_traction = true
 use_as_steering = true
+wheel_roll_influence = 0.05
 wheel_radius = 0.4
 wheel_rest_length = 0.2
 wheel_friction_slip = 10.0
@@ -78,11 +82,12 @@ material/1 = null
 material/2 = null
 
 [node name="WheelRightRear" type="VehicleWheel" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.969, 0.352164, -1.16054 )
+transform = Transform( 0.890968, 0, 0, 0, 1, 0, 0, 0, 1, 0.859636, 0.351315, -1.16833 )
 use_as_traction = true
+wheel_roll_influence = 0.05
 wheel_radius = 0.4
 wheel_rest_length = 0.2
-wheel_friction_slip = 5.0
+wheel_friction_slip = 8.5
 suspension_travel = 0.4
 suspension_stiffness = 25.0
 suspension_max_force = 700.0
@@ -96,4 +101,5 @@ material/2 = null
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.07338, -7.407 )
+doppler_tracking = 2
 far = 600.0
